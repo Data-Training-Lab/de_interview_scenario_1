@@ -13,6 +13,7 @@ exposures:
     depends_on:
       - ref('fct_sale')
       - ref('dim_client')
+      - ref('dim_employee')
       - ref('dim_region')
 
     owner:
