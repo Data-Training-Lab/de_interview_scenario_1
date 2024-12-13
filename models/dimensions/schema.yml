@@ -1,0 +1,65 @@
+
+version: 2
+
+models:
+  - name: dim_client
+    description: "A dimension table containing client information"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: _client_hk
+        description: "The primary key for this table"
+        data_type: VARCHAR
+        data_tests:
+          - unique
+          - not_null
+      - name: _client_bk
+        description: "The business key for this table"
+        data_type: BIGINT
+        data_tests:
+          - unique
+          - not_null
+      - name: _created_datetime
+        description: "The datetime the record was created in the data warehouse"
+        data_type: TIMESTAMP
+        data_tests:
+          - not_null
+      - name: _modified_datetime
+        description: "The datetime the record was last updated in the data warehouse"
+        data_type: TIMESTAMP
+        data_tests:
+          - not_null
+      - name: _is_deleted
+        description: "A flag to identify if the record has been deleted from the source system"
+        data_type: BOOLEAN
+        data_tests:
+          - not_null
+      - name: client_name
+        data_type: VARCHAR
+        description: "The name of the client in the format 'Last Name, First Name'"
+        data_tests:
+          - not_null
+
+  - name: dim_region
+    description: "A dimension table containing a list of regions"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: _region_hk
+        description: "The primary key for this table"
+        data_type: VARCHAR
+        data_tests:
+          - unique
+          - not_null
+      - name: _created_datetime
+        description: "The datetime the record was created in the data warehouse"
+        data_type: TIMESTAMP
+        data_tests:
+          - not_null
+      - name: region_name
+        description: "The name of the region"
+        data_type: VARCHAR
+        data_tests:
+          - not_null
