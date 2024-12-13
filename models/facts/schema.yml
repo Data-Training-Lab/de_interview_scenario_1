@@ -13,6 +13,14 @@ models:
               to: ref('dim_client')
               field: _client_hk
 
+      - name: _employee_hk
+        description: "A foreign key to the employee dimension"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_employee')
+              field: _employee_hk
+
       - name: _region_hk
         description: "A foreign key to the region dimension"
         data_tests:
